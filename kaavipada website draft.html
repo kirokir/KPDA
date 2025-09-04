@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaavipada News | Latest Kerala and National News</title>
+    <meta name="description" content="Kaavipada News provides breaking news, analysis, and updates from Kerala, India, and around the world.">
+    <meta property="og:title" content="Kaavipada News | The Pulse of the Nation">
+    <meta property="og:description" content="Your trusted source for news on politics, health, crime, and technology.">
+    <meta property="og:image" content="https://images.pexels.com/photos/935949/pexels-photo-935949.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F97D09'%3E%3Cpath d='M6 3h3v6.5l6-6.5h3.5l-7 7.5 7.5 8.5h-3.5l-6-7v7h-3.5z'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            html {
+                font-family: 'Satoshi', sans-serif;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Space Grotesk', sans-serif;
+            }
+        }
+        @layer utilities {
+            .text-balance { text-wrap: balance; }
+            .ticker-wrap {
+                width: 100%;
+                overflow: hidden;
+            }
+            .ticker-move {
+                display: inline-block;
+                white-space: nowrap;
+                animation: ticker 50s linear infinite;
+            }
+            @keyframes ticker {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+             .ken-burns {
+                animation: ken-burns 20s ease-out infinite both;
+            }
+            @keyframes ken-burns {
+                0% { transform: scale(1.05) translate(0, 0); }
+                50% { transform: scale(1.15) translate(-2%, 2%); }
+                100% { transform: scale(1.05) translate(0, 0); }
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Satoshi', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#F97D09',
+                            '100': '#FFEFE0',
+                            '200': '#FFD6AD',
+                            '600': '#E06F08',
+                            '700': '#B85B06',
+                        },
+                        accent: {
+                            DEFAULT: '#c2410c', // Saffron-Red
+                            '600': '#9a3412',
+                        },
+                        neutral: {
+                            '50': '#F8FAFC',
+                            '100': '#F1F5F9',
+                            '200': '#E2E8F0',
+                            '300': '#CBD5E1',
+                            '400': '#94A3B8',
+                            '500': '#64748B',
+                            '600': '#475569',
+                            '700': '#334155',
+                            '800': '#1E293B',
+                            '900': '#0F172A',
+                            '950': '#020617'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-100 dark:bg-neutral-950 text-neutral-800 dark:text-neutral-200 antialiased overflow-x-hidden">
+
+    <header id="main-header" class="sticky top-0 z-50 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 shadow-sm">
+        <div class="bg-neutral-50 dark:bg-neutral-950 text-xs text-neutral-600 dark:text-neutral-400">
+            <div class="container mx-auto px-4 lg:px-6 py-1.5 flex justify-between items-center">
+                <span id="current-date"></span>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hover:text-primary">Subscribe</a>
+                </div>
+            </div>
+        </div>
+        <nav class="container mx-auto px-4 lg:px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2 router-link">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F97D09'%3E%3Cpath d='M6 3h3v6.5l6-6.5h3.5l-7 7.5 7.5 8.5h-3.5l-6-7v7h-3.5z'/%3E%3C/svg%3E" alt="Kaavipada Logo" class="h-10 w-10">
+                <span class="font-bold text-xl font-display text-neutral-900 dark:text-white">Kaavipada</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#home" class="font-semibold text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 router-link">Home</a>
+                <a href="#news" class="font-semibold text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 router-link">All News</a>
+                <a href="#about" class="font-semibold text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 router-link">About Us</a>
+                <a href="#community" class="font-semibold text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 router-link">Community</a>
+                <a href="#events" class="font-semibold text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 router-link">Events</a>
+                <a href="#contact" class="font-semibold text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 router-link">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                 <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m4.93 19.07 1.41-1.41"/><path d="m17.66 6.34 1.41-1.41"/></svg>
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+                <button class="lg:hidden" id="mobile-menu-button">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-neutral-950/50 backdrop-blur-sm z-40 hidden lg:hidden">
+        <div class="absolute top-0 right-0 h-full w-2/3 max-w-sm bg-white dark:bg-neutral-900 shadow-2xl p-6 transform translate-x-full transition-transform duration-300">
+            <div class="flex justify-end mb-8">
+                <button id="close-mobile-menu-button"><i data-lucide="x"></i></button>
+            </div>
+            <div class="flex flex-col space-y-6 text-xl text-center">
+                <a href="#home" class="font-semibold text-neutral-700 dark:text-neutral-200 router-link mobile-link">Home</a>
+                <a href="#news" class="font-semibold text-neutral-700 dark:text-neutral-200 router-link mobile-link">All News</a>
+                <a href="#about" class="font-semibold text-neutral-700 dark:text-neutral-200 router-link mobile-link">About Us</a>
+                <a href="#community" class="font-semibold text-neutral-700 dark:text-neutral-200 router-link mobile-link">Community</a>
+                <a href="#events" class="font-semibold text-neutral-700 dark:text-neutral-200 router-link mobile-link">Events</a>
+                <a href="#contact" class="font-semibold text-neutral-700 dark:text-neutral-200 router-link mobile-link">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <main id="app-root" class="min-h-screen">
+    </main>
+    
+    <footer class="bg-neutral-900 text-neutral-300 pt-16 pb-8">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="lg:col-span-2">
+                    <h3 class="font-bold text-white text-xl mb-4">Subscribe to Kaavipada</h3>
+                    <p class="mb-4 text-neutral-400">Get the latest news and updates delivered straight to your inbox.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email address" class="w-full bg-neutral-800 border border-neutral-700 rounded-l-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button type="submit" class="bg-primary text-white font-bold py-2 px-4 rounded-r-md hover:bg-primary-600 transition-colors">Subscribe</button>
+                    </form>
+                </div>
+                 <div>
+                    <h3 class="font-bold text-white text-xl mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-primary transition-colors router-link">About Us</a></li>
+                        <li><a href="#events" class="hover:text-primary transition-colors router-link">Events</a></li>
+                        <li><a href="#news" class="hover:text-primary transition-colors router-link">All News</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition-colors router-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-xl mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="p-2 bg-neutral-800 rounded-full hover:bg-primary transition-colors"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="p-2 bg-neutral-800 rounded-full hover:bg-primary transition-colors"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="p-2 bg-neutral-800 rounded-full hover:bg-primary transition-colors"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="p-2 bg-neutral-800 rounded-full hover:bg-primary transition-colors"><i data-lucide="youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+             <div class="mt-12 pt-8 border-t border-neutral-700 text-center text-neutral-500 text-sm">
+                <p>Kaavipada News © 2025. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <template id="page-home">
+        <div>
+            <div class="bg-accent text-white ticker-wrap">
+                <div class="container mx-auto px-4 lg:px-6 flex items-center h-10">
+                    <span class="font-bold text-sm uppercase pr-4 flex-shrink-0">Breaking</span>
+                    <div class="h-full flex-grow overflow-hidden relative">
+                         <div class="ticker-move absolute top-0 left-0 h-full flex items-center">
+                            <span id="breaking-news-content" class="text-sm"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-4 lg:px-6 py-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <div class="lg:col-span-2 xl:col-span-3">
+                        <div id="top-story-container"></div>
+                        <div class="mt-8">
+                            <h2 class="text-2xl font-bold border-b-2 border-primary pb-2 mb-4">Latest News</h2>
+                            <div id="latest-stories-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+                        </div>
+                    </div>
+                    
+                    <aside class="lg:col-span-1 xl:col-span-1">
+                        <div class="sticky top-28 space-y-8">
+                            <div>
+                                <h3 class="text-xl font-bold border-b-2 border-accent pb-2 mb-4">Most Read</h3>
+                                <div id="most-read-container" class="space-y-4"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold border-b-2 border-accent pb-2 mb-4">Videos</h3>
+                                <div id="latest-videos-container" class="space-y-4"></div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="page-news">
+         <div>
+            <div class="bg-neutral-100 dark:bg-neutral-900 py-8">
+                <div class="container mx-auto px-4 lg:px-6">
+                    <h1 class="text-4xl md:text-5xl font-bold">All News</h1>
+                    <p class="text-neutral-600 dark:text-neutral-400 mt-2">Browse the latest headlines from all categories.</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 lg:px-6 py-8">
+                 <div id="all-articles-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="page-article">
+         <div class="bg-white dark:bg-neutral-900 py-8">
+             <div class="container mx-auto px-4 lg:px-6">
+                 <div class="max-w-3xl mx-auto">
+                     <div id="article-content"></div>
+                 </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="page-about">
+        <div>
+            <section class="relative h-[60vh] flex items-center justify-center text-white text-center px-4">
+                <div class="absolute inset-0 bg-black/60 z-10"></div>
+                <img src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute inset-0 w-full h-full object-cover ken-burns" alt="Professional group of diverse young leaders">
+                <div class="relative z-20">
+                    <h1 class="text-5xl md:text-7xl font-extrabold font-display">Driven by Vision, Powered by Youth.</h1>
+                    <p class="mt-4 text-xl md:text-2xl max-w-4xl mx-auto text-balance">Kaavipada is a movement dedicated to empowering India’s young generation.</p>
+                </div>
+            </section>
+            
+            <section class="py-16 md:py-24 bg-white dark:bg-neutral-950">
+                <div class="container mx-auto px-4 lg:px-6 text-center max-w-4xl">
+                    <h2 class="text-4xl font-bold font-display text-primary mb-4">Our Mission</h2>
+                    <p class="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300 leading-relaxed">We believe in harnessing the energy of India’s youth for national growth, innovation, and global leadership. Our goal is to create a platform where young ideas flourish and translate into tangible action for a prosperous India.</p>
+                </div>
+            </section>
+
+            <section class="py-16 md:py-24 bg-neutral-100 dark:bg-neutral-900">
+                <div class="container mx-auto px-4 lg:px-6">
+                    <h2 class="text-4xl font-bold font-display text-center mb-12">Our Journey</h2>
+                    <div id="timeline-container" class="relative max-w-4xl mx-auto"></div>
+                </div>
+            </section>
+
+            <section class="py-16 md:py-24 bg-white dark:bg-neutral-950">
+                <div class="container mx-auto px-4 lg:px-6">
+                    <h2 class="text-4xl font-bold font-display text-center mb-12">Our Leadership</h2>
+                    <div id="leadership-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+                </div>
+            </section>
+        </div>
+    </template>
+    
+    <template id="page-community">
+         <div>
+            <section class="py-16 md:py-24 bg-white dark:bg-neutral-950 text-center">
+                <div class="container mx-auto px-4 lg:px-6">
+                    <h1 class="text-5xl md:text-7xl font-extrabold font-display">Your Voice. Your Platform.</h1>
+                    <p class="mt-4 text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">Engage in discussions, share ideas, and collaborate with youth across India.</p>
+                </div>
+            </section>
+
+            <section class="py-16 md:py-24 bg-neutral-100 dark:bg-neutral-900">
+                <div class="container mx-auto px-4 lg:px-6">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="w-full lg:w-1/4">
+                            <div class="sticky top-24 bg-white dark:bg-neutral-800 p-4 rounded-lg">
+                                <h3 class="font-bold text-lg mb-4">Categories</h3>
+                                <div id="forum-tags" class="flex flex-wrap gap-2"></div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-3/4">
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-3xl font-bold">Discussions</h2>
+                                <button class="bg-primary text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-primary-600">
+                                    <i data-lucide="plus"></i> New Topic
+                                </button>
+                            </div>
+                            <div id="forum-threads" class="space-y-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <template id="page-events">
+        <div>
+            <section class="relative h-[50vh] flex items-center justify-center text-white text-center px-4">
+                <div class="absolute inset-0 bg-black/50 z-10"></div>
+                <img src="https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute inset-0 w-full h-full object-cover" alt="Youth waving flags at an event">
+                <div class="relative z-20">
+                    <h1 class="text-4xl md:text-6xl font-extrabold font-display">Rallies, Conferences & Campaigns</h1>
+                </div>
+            </section>
+
+            <section class="py-16 md:py-24 bg-white dark:bg-neutral-950">
+                <div class="container mx-auto px-4 lg:px-6">
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">Upcoming Events</h2>
+                        <div id="upcoming-events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Past Events Archive</h2>
+                        <div id="past-events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <template id="page-contact">
+        <div>
+            <section class="py-16 md:py-24 bg-white dark:bg-neutral-950">
+                <div class="container mx-auto px-4 lg:px-6">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h1 class="text-5xl md:text-6xl font-extrabold font-display mb-4">Let's Build Together.</h1>
+                            <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">Have a question, suggestion, or want to get involved? We'd love to hear from you.</p>
+                            <div class="space-y-4 text-lg">
+                                <p class="flex items-center gap-3"><i data-lucide="map-pin" class="text-primary"></i> 11, Ashoka Road, New Delhi, Delhi 110001</p>
+                                <p class="flex items-center gap-3"><i data-lucide="phone" class="text-primary"></i> +91-11-23005700</p>
+                                <a href="#" class="inline-flex items-center gap-3 font-semibold text-accent hover:text-accent-600"><i data-lucide="message-circle" class="text-accent"></i> Connect on WhatsApp</a>
+                            </div>
+                        </div>
+                        <div class="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg shadow-xl">
+                            <form id="contact-form" class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                                    <input type="text" id="name" name="name" required class="w-full bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                                    <input type="email" id="email" name="email" required class="w-full bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div>
+                                    <label for="state" class="block text-sm font-medium mb-1">State</label>
+                                    <select id="state" name="state" required class="w-full bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary"></select>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                                    <textarea id="message" name="message" rows="4" required class="w-full bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary-600 transition-colors text-lg">Submit Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </template>
+    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const appRoot = document.getElementById('app-root');
+            const pageTemplates = {
+                home: document.getElementById('page-home').innerHTML,
+                news: document.getElementById('page-news').innerHTML,
+                article: document.getElementById('page-article').innerHTML,
+                about: document.getElementById('page-about').innerHTML,
+                community: document.getElementById('page-community').innerHTML,
+                events: document.getElementById('page-events').innerHTML,
+                contact: document.getElementById('page-contact').innerHTML,
+            };
+
+            const db = {
+                articles: [
+                    { id: 1, headline: "Contaminated Paracetamol: 10 Batches Banned After Pills Found Crumbled and Worm-Infested", teaser: "The State Drugs Control Department has issued an urgent recall after quality checks revealed severe contamination in multiple batches of paracetamol tablets from a major supplier.", category: "Health", image: "https://images.pexels.com/photos/3683074/pexels-photo-3683074.jpeg?auto=compress&cs=tinysrgb&w=600", author: "vishnu", publishedDate: "2025-09-04T12:00:00Z", views: 25800, isBreaking: true, content: "<p>In a shocking public health alert, the Kerala State Drugs Control Department has ordered an immediate ban and recall of ten specific batches of paracetamol tablets. The action was taken following numerous complaints from consumers and pharmacists who reported that the tablets were crumbling to dust upon opening the blister packs. More alarmingly, some samples were found to be infested with small worms and other organic contaminants.</p><p>An investigation has been launched into the manufacturing facility, and officials have urged the public to check their medicine cabinets. 'Patient safety is our utmost priority,' said Health Minister Veena George. 'We are conducting a thorough investigation and will take the strictest possible action against those responsible for this gross negligence.' A full list of the affected batch numbers has been published on the department's official website.</p>" },
+                    { id: 2, headline: "Tragedy on Night Bus: Passenger's Body Discovered 25 Kilometers After Medical Emergency", teaser: "A 58-year-old man who suffered a medical emergency on a long-distance bus was found to have passed away only after the bus had travelled 25 km from the point of collapse.", category: "Kerala", image: "https://images.pexels.com/photos/173307/pexels-photo-173307.jpeg?auto=compress&cs=tinysrgb&w=600", author: "Rajesh Kumar", publishedDate: "2025-09-04T11:30:00Z", views: 19500, content: "<p>A journey on a night bus from Thiruvananthapuram to Kozhikode turned tragic after a passenger's death went unnoticed for nearly half an hour. According to fellow passengers, the man, identified as Suresh Pillai, 58, appeared to slump over in his seat near Ravalam. It was assumed he had fallen asleep. However, when the bus reached its next major stop 25 kilometers later, he was found to be unresponsive.</p><p>The bus crew immediately diverted the vehicle to the nearest government hospital, where doctors pronounced him dead on arrival. Preliminary reports suggest a massive cardiac arrest was the cause of death. The incident has raised questions about emergency response protocols on public transport, with many passengers stating they were unaware of the man's distress. 'It was dark and most of us were sleeping,' one passenger recounted. 'It's a deeply unfortunate situation.' Police have registered a case of unnatural death and are investigating the circumstances.</p>" },
+                    { id: 3, headline: "Monsoon Fury: Red Alert Issued for Idukki and Pathanamthitta Districts", teaser: "The India Meteorological Department (IMD) has issued a red alert, forecasting extremely heavy rainfall for the next 48 hours in the hilly districts of central Kerala.", category: "Kerala", image: "https://images.pexels.com/photos/1484439/pexels-photo-1484439.jpeg?auto=compress&cs=tinysrgb&w=600", author: "Team Kaavipada", publishedDate: "2025-09-04T10:00:00Z", views: 15200, isBreaking: true, content: "<p>Authorities are on high alert as the IMD predicts a fresh onslaught of monsoon rains across Kerala. A red alert has been declared for Idukki and Pathanamthitta, with an orange alert in place for Kottayam, Ernakulam, and Thrissur. Residents in low-lying and landslide-prone areas have been advised to move to relief camps. The state government has deployed National Disaster Response Force (NDRF) teams to vulnerable areas and has opened district-level control rooms to monitor the situation.</p>" },
+                    { id: 4, headline: "ISRO Prepares for Landmark Launch of Gaganyaan Test Flight", teaser: "The Indian Space Research Organisation is in the final stages of preparation for the first uncrewed test flight of its Gaganyaan crew capsule, a critical step towards India's first human spaceflight mission.", category: "National", image: "https://images.pexels.com/photos/58603/launch-rocket-rocket-launch-space-58603.jpeg?auto=compress&cs=tinysrgb&w=600", author: "Priya Varma", publishedDate: "2025-09-04T09:00:00Z", views: 22300, content: "<p>All eyes are on the Satish Dhawan Space Centre in Sriharikota as ISRO gears up for the TV-D1 test flight, a crucial milestone for the Gaganyaan mission. This flight will test the crew escape system and parachute deployment sequence of the crew module. 'This mission will validate the safety protocols that will protect our astronauts,' said ISRO Chairman S. Somanath. A successful test will pave the way for further unmanned flights before the historic crewed mission, planned for late 2026.</p>" },
+                    { id: 5, headline: "Kochi Metro Phase 3 Gets Green Light from Central Government", teaser: "The long-awaited approval for the third phase of the Kochi Metro, connecting the airport to the city center, has been granted, promising to revolutionize urban mobility.", category: "Business", image: "https://images.pexels.com/photos/1034859/pexels-photo-1034859.jpeg?auto=compress&cs=tinysrgb&w=600", author: "Anand Mohan", publishedDate: "2025-09-03T15:00:00Z", views: 12100, content: "<p>In a major boost to Kochi's infrastructure, the Union Cabinet has approved the detailed project report for Phase 3 of the Kochi Metro. This new line will create a vital link between Cochin International Airport at Nedumbassery and the city's main commercial hubs. The project is expected to significantly reduce traffic congestion and provide a faster, more eco-friendly travel option for thousands of commuters and tourists. The Kerala government has hailed the decision as a landmark moment for the state's development.</p>" },
+                ],
+                videos: [
+                    { id: 101, headline: "Inside Look: Kerala's Startup Ecosystem in Technopark", category: "Tech", thumbnail: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400", duration: "12:34" },
+                    { id: 102, headline: "Onam Celebrations: A Visual Journey Through Kerala's Biggest Festival", category: "Culture", thumbnail: "https://images.pexels.com/photos/15904639/pexels-photo-15904639/free-photo-of-pookalam-onam-festival-celebration.jpeg?auto=compress&cs=tinysrgb&w=400", duration: "08:15" },
+                ],
+                 leadership: [
+                    { name: "Amit Sharma", designation: "National President", photo: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400" },
+                    { name: "Priya Singh", designation: "National Vice President", photo: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400" },
+                    { name: "Rohan Verma", designation: "General Secretary", photo: "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=400" },
+                    { name: "Anjali Gupta", designation: "National Secretary", photo: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=400" },
+                ],
+                timeline: [
+                    { year: "1978", title: "Formation", text: "The movement was formed as a youth wing of a major political party." },
+                    { year: "1990s", title: "Nationwide Expansion", text: "Expands its presence across various states, becoming a significant youth political force." },
+                    { year: "2014", title: "Digital India Push", text: "Embraced technology for campaigning and outreach, aligning with the national Digital India mission." },
+                    { year: "2024", title: "Global Youth Connect", text: "Launched initiatives to connect with the Indian diaspora and global youth leadership forums." },
+                ],
+                forum: {
+                    tags: ["Education", "Jobs", "Politics", "Tech", "Environment", "Sports"],
+                    threads: [
+                        { title: "Is the new National Education Policy effective?", author: "user123", replies: 15, upvotes: 42, avatar: "https://randomuser.me/api/portraits/men/1.jpg", tags: ["Education"] },
+                        { title: "Best way to prepare for public service exams?", author: "aspirant_ankit", replies: 8, upvotes: 29, avatar: "https://randomuser.me/api/portraits/men/2.jpg", tags: ["Jobs", "Education"] },
+                        { title: "How can we increase green cover in our cities?", author: "enviro_warrior", replies: 22, upvotes: 61, avatar: "https://randomuser.me/api/portraits/women/1.jpg", tags: ["Environment", "Politics"] },
+                    ]
+                },
+                events: {
+                    upcoming: [
+                        { title: "Youth Leadership Summit 2025", location: "New Delhi", date: "15 Oct 2025", image: "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                        { title: "Digital Transformation Conclave", location: "Bengaluru", date: "22 Nov 2025", image: "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                        { title: "Nation First Rally", location: "Mumbai", date: "10 Dec 2025", image: "https://images.pexels.com/photos/1154510/pexels-photo-1154510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                    ],
+                    past: [
+                        { title: "Startup India Fest", location: "Hyderabad", date: "12 May 2025", image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                        { title: "Clean India Drive", location: "Varanasi", date: "02 Apr 2025", image: "https://images.pexels.com/photos/7942547/pexels-photo-7942547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                        { title: "Youth Parliament", location: "Kolkata", date: "18 Mar 2025", image: "https://images.pexels.com/photos/8199708/pexels-photo-8199708.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                    ]
+                },
+                states: ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal"]
+            };
+            
+            // --- CORE APP LOGIC ---
+
+            const init = () => {
+                lucide.createIcons();
+                setupMobileMenu();
+                updateDate();
+                setupDarkMode();
+                router();
+                window.addEventListener('hashchange', router);
+                document.addEventListener('click', e => {
+                    const link = e.target.closest('.router-link');
+                    if (link) {
+                        e.preventDefault();
+                        window.location.hash = link.getAttribute('href').substring(1);
+                    }
+                });
+            };
+
+            const router = () => {
+                const [path, param] = (window.location.hash.substring(1) || 'home').split('/');
+                appRoot.innerHTML = ''; 
+                
+                const route = path || 'home';
+                if (pageTemplates[route]) {
+                    appRoot.innerHTML = pageTemplates[route];
+                    const renderFunction = pageRenderFunctions[route];
+                    if (renderFunction) {
+                        renderFunction(param);
+                    }
+                } else {
+                    appRoot.innerHTML = pageTemplates.home;
+                    pageRenderFunctions.home();
+                }
+                
+                lucide.createIcons();
+                window.scrollTo(0, 0);
+                updateActiveLink(route);
+            };
+            
+            // --- RENDER FUNCTIONS ---
+            
+            const renderHomePage = () => {
+                const topStory = db.articles.sort((a,b) => new Date(b.publishedDate) - new Date(a.publishedDate))[0];
+                const latestStories = db.articles.slice(1, 5);
+                const mostRead = [...db.articles].sort((a, b) => b.views - a.views).slice(0, 4);
+                
+                document.getElementById('top-story-container').innerHTML = createArticleCard(topStory, true);
+                document.getElementById('latest-stories-grid').innerHTML = latestStories.map(article => createArticleCard(article, false)).join('');
+                document.getElementById('most-read-container').innerHTML = mostRead.map(article => createMostReadItem(article)).join('');
+                document.getElementById('latest-videos-container').innerHTML = db.videos.map(video => createVideoItem(video)).join('');
+                
+                const breakingNews = db.articles.filter(a => a.isBreaking).map(a => a.headline).join(' ••• ');
+                const bnContent = document.getElementById('breaking-news-content');
+                bnContent.innerHTML = `<span>${breakingNews}</span><span class="pl-16">${breakingNews}</span>`;
+            };
+
+            const renderNewsPage = () => {
+                const allArticlesGrid = document.getElementById('all-articles-grid');
+                if (allArticlesGrid) {
+                    allArticlesGrid.innerHTML = db.articles.map(article => createArticleCard(article, false, true)).join('');
+                }
+            };
+            
+            const renderArticlePage = (articleId) => {
+                const article = db.articles.find(a => a.id == articleId);
+                const articleContentEl = document.getElementById('article-content');
+                if (article && articleContentEl) {
+                    articleContentEl.innerHTML = `
+                        <span class="text-sm font-semibold text-primary uppercase">${article.category}</span>
+                        <h1 class="text-3xl md:text-5xl font-bold my-4 leading-tight">${article.headline}</h1>
+                        <div class="text-sm text-neutral-500 dark:text-neutral-400 border-y dark:border-neutral-700 py-3 mb-6 flex items-center gap-4">
+                            <span>By <strong>${article.author}</strong></span>
+                            <span>${new Date(article.publishedDate).toLocaleString('en-IN', { dateStyle: 'long', timeStyle: 'short' })}</span>
+                        </div>
+                        <img src="${article.image.replace('w=600', 'w=1200')}" alt="${article.headline}" class="w-full rounded-lg mb-6">
+                        <div class="prose dark:prose-invert max-w-none text-lg leading-relaxed">${article.content}</div>
+                    `;
+                } else if(articleContentEl) {
+                    articleContentEl.innerHTML = `<h2>Article not found.</h2>`;
+                }
+            };
+            
+            const renderAboutPage = () => {
+                const timelineContainer = document.getElementById('timeline-container');
+                const leadershipGrid = document.getElementById('leadership-grid');
+
+                if (timelineContainer) {
+                    timelineContainer.innerHTML = db.timeline.map((item, index) => `
+                        <div class="timeline-item flex items-center w-full my-6">
+                            <div class="w-1/2 flex justify-end">
+                                <div class="${index % 2 === 0 ? 'pr-8 text-right' : 'opacity-0'}">
+                                    <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg shadow-md">
+                                        <p class="font-bold text-lg text-primary">${item.year}</p>
+                                        <h4 class="font-bold text-xl my-1">${item.title}</h4>
+                                        <p class="text-neutral-600 dark:text-neutral-400 text-sm">${item.text}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative"><div class="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white font-bold z-10">${item.year.slice(-2)}</div></div>
+                            <div class="w-1/2 flex justify-start">
+                                 <div class="${index % 2 !== 0 ? 'pl-8 text-left' : 'opacity-0'}">
+                                     <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg shadow-md">
+                                        <p class="font-bold text-lg text-primary">${item.year}</p>
+                                        <h4 class="font-bold text-xl my-1">${item.title}</h4>
+                                        <p class="text-neutral-600 dark:text-neutral-400 text-sm">${item.text}</p>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    `).join('') + `<div class="absolute top-0 left-1/2 h-full w-0.5 bg-neutral-300 dark:bg-neutral-700 -translate-x-1/2 z-0"></div>`;
+                }
+                
+                if (leadershipGrid) {
+                    leadershipGrid.innerHTML = db.leadership.map(leader => `
+                        <div class="text-center group">
+                            <div class="relative inline-block">
+                                <img src="${leader.photo}" alt="${leader.name}" class="w-40 h-40 rounded-full object-cover mx-auto shadow-lg group-hover:scale-105 transition-transform duration-300">
+                                <div class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-primary transition-all duration-300"></div>
+                            </div>
+                            <h4 class="text-xl font-bold mt-4">${leader.name}</h4>
+                            <p class="text-neutral-500 dark:text-neutral-400">${leader.designation}</p>
+                        </div>
+                    `).join('');
+                }
+            };
+            
+            const renderCommunityPage = () => {
+                 const tagsContainer = document.getElementById('forum-tags');
+                 const threadsContainer = document.getElementById('forum-threads');
+                 if(tagsContainer) tagsContainer.innerHTML = db.forum.tags.map(tag => `<button class="bg-primary/10 text-primary font-medium px-3 py-1 text-sm rounded-full hover:bg-primary hover:text-white transition-colors">${tag}</button>`).join('');
+                 if(threadsContainer) threadsContainer.innerHTML = db.forum.threads.map(thread => `<div class="bg-white dark:bg-neutral-800 p-4 rounded-lg flex gap-4 transition-all hover:shadow-lg hover:border-primary border border-transparent"><img src="${thread.avatar}" alt="${thread.author}" class="w-12 h-12 rounded-full"><div class="flex-grow"><h4 class="font-bold text-lg">${thread.title}</h4><div class="text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-4 mt-1"><span>by ${thread.author}</span><div class="flex gap-2">${thread.tags.map(t => `<span class="text-xs font-semibold text-accent">${t}</span>`).join('')}</div></div></div><div class="flex items-center text-center w-24"><div class="w-1/2"><div class="font-bold">${thread.replies}</div><div class="text-xs text-neutral-500">Replies</div></div><div class="w-1/2"><div class="font-bold">${thread.upvotes}</div><div class="text-xs text-neutral-500">Upvotes</div></div></div></div>`).join('');
+            };
+            
+            const renderEventsPage = () => {
+                const upcomingGrid = document.getElementById('upcoming-events-grid');
+                const pastGrid = document.getElementById('past-events-grid');
+                const createEventCard = (event, isUpcoming = true) => `<div class="bg-white dark:bg-neutral-900 rounded-lg shadow-lg overflow-hidden group"><div class="overflow-hidden h-48"><img src="${event.image}" alt="${event.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"></div><div class="p-6"><h3 class="text-xl font-bold mb-2 h-14">${event.title}</h3><p class="text-neutral-500 dark:text-neutral-400 mb-4 flex items-center gap-2 text-sm"><i data-lucide="map-pin" class="w-4 h-4 text-primary"></i> ${event.location} | <i data-lucide="calendar" class="w-4 h-4 text-primary"></i> ${event.date}</p>${isUpcoming ? `<a href="#" class="inline-block w-full text-center bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors">Register Now</a>` : `<a href="#" class="inline-block w-full text-center bg-neutral-200 dark:bg-neutral-700 font-bold py-2 px-4 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-colors">View Gallery</a>`}</div></div>`;
+                if (upcomingGrid) upcomingGrid.innerHTML = db.events.upcoming.map(e => createEventCard(e, true)).join('');
+                if (pastGrid) pastGrid.innerHTML = db.events.past.map(e => createEventCard(e, false)).join('');
+            };
+
+            const renderContactPage = () => {
+                const stateSelect = document.getElementById('state');
+                if (stateSelect) stateSelect.innerHTML = `<option value="">Select State</option>` + db.states.map(state => `<option value="${state}">${state}</option>`).join('');
+            };
+            
+            const pageRenderFunctions = {
+                home: renderHomePage,
+                news: renderNewsPage,
+                article: renderArticlePage,
+                about: renderAboutPage,
+                community: renderCommunityPage,
+                events: renderEventsPage,
+                contact: renderContactPage,
+            };
+
+            // --- COMPONENT BUILDERS ---
+
+            const createArticleCard = (article, isTopStory = false, isCategoryView = false) => {
+                if (isTopStory) {
+                    return `
+                    <a href="#article/${article.id}" class="group block">
+                        <div class="relative overflow-hidden rounded-lg">
+                            <img src="${article.image.replace('w=600', 'w=1200')}" alt="${article.headline}" class="w-full h-auto object-cover aspect-video group-hover:scale-105 transition-transform duration-300">
+                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </div>
+                        <span class="text-sm font-semibold text-accent uppercase mt-4 inline-block">${article.category}</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-1 group-hover:text-primary transition-colors">${article.headline}</h2>
+                        <p class="text-neutral-600 dark:text-neutral-400 mt-2">${article.teaser}</p>
+                    </a>`;
+                }
+                const imageSize = isCategoryView ? 'w=600' : 'w=600';
+                return `
+                <a href="#article/${article.id}" class="group block bg-white dark:bg-neutral-900 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <div class="overflow-hidden">
+                        <img src="${article.image.replace('w=600', imageSize)}" alt="${article.headline}" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-4">
+                        <span class="text-xs font-semibold text-primary uppercase">${article.category}</span>
+                        <h3 class="font-bold mt-1 text-md leading-tight group-hover:text-primary transition-colors h-20">${article.headline}</h3>
+                    </div>
+                </a>`;
+            };
+
+            const createMostReadItem = (article) => `
+                <a href="#article/${article.id}" class="group flex items-start gap-4">
+                    <span class="text-3xl font-bold text-neutral-300 dark:text-neutral-700">0${[...db.articles].sort((a,b) => b.views - a.views).indexOf(article) + 1}</span>
+                    <div>
+                        <h4 class="font-bold leading-tight group-hover:text-primary transition-colors">${article.headline}</h4>
+                        <p class="text-sm text-neutral-500">${article.category}</p>
+                    </div>
+                </a>`;
+            
+            const createVideoItem = (video) => `
+                 <a href="#" class="group block">
+                    <div class="relative overflow-hidden rounded-lg mb-2">
+                        <img src="${video.thumbnail}" alt="${video.headline}" class="w-full h-24 object-cover">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                             <i data-lucide="play-circle" class="w-8 h-8 text-white/80 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="absolute bottom-1 right-1 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">${video.duration}</span>
+                    </div>
+                    <h4 class="font-bold text-sm leading-tight group-hover:text-primary transition-colors">${video.headline}</h4>
+                </a>`;
+
+            // --- UTILITY & SETUP FUNCTIONS ---
+
+            const setupMobileMenu = () => {
+                const openBtn = document.getElementById('mobile-menu-button');
+                const closeBtn = document.getElementById('close-mobile-menu-button');
+                const menu = document.getElementById('mobile-menu');
+                const menuContent = menu.querySelector('div');
+                const openMenu = () => { menu.classList.remove('hidden'); setTimeout(() => menuContent.classList.remove('translate-x-full'), 10); };
+                const closeMenu = () => { menuContent.classList.add('translate-x-full'); setTimeout(() => menu.classList.add('hidden'), 300); };
+                openBtn.addEventListener('click', openMenu);
+                closeBtn.addEventListener('click', closeMenu);
+                menu.addEventListener('click', (e) => { if (e.target === menu || e.target.closest('.mobile-link')) closeMenu(); });
+            };
+
+            const updateDate = () => {
+                const dateEl = document.getElementById('current-date');
+                if (dateEl) dateEl.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            };
+
+            const setupDarkMode = () => {
+                const toggle = document.getElementById('dark-mode-toggle');
+                const sunIcon = document.getElementById('sun-icon');
+                const moonIcon = document.getElementById('moon-icon');
+                const applyTheme = (isDark) => {
+                    document.documentElement.classList.toggle('dark', isDark);
+                    sunIcon.classList.toggle('hidden', isDark);
+                    moonIcon.classList.toggle('hidden', !isDark);
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                };
+                toggle.addEventListener('click', () => applyTheme(!document.documentElement.classList.contains('dark')));
+                const savedTheme = localStorage.getItem('theme');
+                applyTheme(savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+            };
+
+            const updateActiveLink = (path) => {
+                document.querySelectorAll('.router-link').forEach(link => {
+                    const linkPath = link.getAttribute('href').substring(1);
+                    if (linkPath === path) {
+                        link.classList.add('text-primary');
+                        link.classList.remove('text-neutral-600', 'dark:text-neutral-300');
+                    } else {
+                        link.classList.remove('text-primary');
+                        link.classList.add('text-neutral-600', 'dark:text-neutral-300');
+                    }
+                });
+            };
+
+            init();
+        });
+    </script>
+</body>
+</html>
